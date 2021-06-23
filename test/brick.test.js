@@ -1,7 +1,5 @@
 const BrickToken = artifacts.require("brickToken");
 
-
-
 contract("brickToken", (accounts) => {
   let contractInstance;
   beforeEach(async () => {
@@ -35,7 +33,6 @@ contract("brickToken", (accounts) => {
       assert.equal(balance, 100);
       balance = await contractInstance.balanceOf(accounts[0]);
       assert.equal(balance, 9999999900);
-
 
       await contractInstance.transfer(jerry, 10, { from: tom});
       balance = await contractInstance.balanceOf(tom);
