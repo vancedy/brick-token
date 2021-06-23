@@ -1,7 +1,6 @@
 brick token
 
-
-### Allows youto interact with a ERC20 token, send, store, and mint. 
+### Interact, send, transact ERC20 tokens, without approval functions
 
 
 
