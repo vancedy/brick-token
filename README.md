@@ -17,14 +17,21 @@ An example ERC20 token that can be sent, received, and bought using ETH.
 4. migrate to ganache 
 `truffle migrate`
 
-5. start frontend
+
+5. copy contract address to"brick-token/frontend/brick-token/src/scripts/getWeb3.js"
+
+
+6. PASTE the address into 'BRICKADDRESS' c
+
+
+7.  START frontend
 `cd frontend/brickToken`
 `npm start`
 
 **Congrats, you are now running brick token!**
 
-### RINKEBY DEPLOYMENT COMING SOON!!
-C
-C
-C
-**Congrats, you now are running Brick Token**
+
+
+
+
+
