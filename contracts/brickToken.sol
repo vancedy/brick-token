@@ -1,7 +1,6 @@
 // "SPDX-License-Identifier: MIT"
 pragma solidity ^0.7.3;
 
-
 /**
 @dev a basic implementation of ERC20 without approve and allowance functions.
 */
@@ -20,7 +19,6 @@ contract brickToken {
     _mint(admin, 10000000000);
   }
 
-
   mapping(address => uint) userBalance;
   event Transfer(address indexed _from, address indexed _to, uint256 _value);
 
@@ -35,11 +33,9 @@ contract brickToken {
   function totalSupply() public view returns (uint256){
     return supply;
   }
-  
   function balanceOf(address _owner) public view returns (uint256 balance){
     return userBalance[_owner];
   }
-
   function transfer(address _to, uint256 _value) public{
     require(userBalance[msg.sender]>_value, 'Not enough BRCK to spend.');
     userBalance[msg.sender]-=_value;
@@ -53,7 +49,4 @@ contract brickToken {
     userBalance[_to]+=_value;
     supply = supply + _value;
   }
-
-
-
 }

@@ -1,9 +1,20 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import { useStoreApi } from './scripts/storeAPI';
-import { Grid, TextField ,Button, AppBar, Toolbar, IconButton, Typography} from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
 import { useWeb3 } from './scripts/getWeb3';
-import { accessSync } from 'fs';
+import { Image, Box, Flex, Text, Link, Button , Card, Heading} from 'rebass';
+import brick from './assets/brick.png'
+import {
+  Label,
+  Input,
+  Select,
+  Textarea,
+  Radio,
+  Checkbox,
+} from '@rebass/forms'
+
+
 const { ethers, Contract } = require("ethers");
 
 
@@ -62,16 +73,67 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      
+
+      <Flex
+      px={2}
+      color="white"
+      bg="#23272a"
+      alignItems='center'>
+        <Image 
+        src={brick}
+        ml='5vh'
+        width={1/10}
+        sx={{
+          width: '8%'
+        }}  />      
+        <Text 
+        width={1/2}
+        fontFamily='monospace'
+        fontWeight='bold'
+        lineHeight='body'
+        textAlign='center'
+        ml={0}
+        >
+          
+          Brick Token Yuh</Text>
+        <Box width={1}/>
+        <Button
+        bg='#5E2BFF'
+        color="white"
+        mr= '5vw'
+        my={3}
+        width={1/4}
+        onClick={loginHandler}
+        >
+          <Text
+        fontFamily='monospace'
+        fontWeight='bold'
+        textAlign='center'
+
+ >
+          Login
+        </Text>
+        </Button>
+      
+      </Flex>
+      <Flex
+      alignItems='center'
+      justifyItems='center'
+      >
+
+    <Card
+        fontSize={3}
+        bg="#5E2BFF"
+        my={3}
+        mx={10}
+        
+      >
+
+
+
       <Grid container spacing={3}>
-        <Grid item xs={4}>
-        <p> Brick Token Yuh</p>
-        </Grid>
-        <Grid item xs={4}>
-        <p id="account">{address ? address : initialmessage} </p>
-        </Grid>
-        <Grid item xs={4}>
-          <button onClick={loginHandler}>Login</button>
-        </Grid>
+       
       <Grid item xs={6}>
       <p id="balance">{BRCKbalance ? BRCKbalance : initialmessage2}</p>
       </Grid>
@@ -88,8 +150,64 @@ function App() {
             Send BRCK
           </Button>
         </form>
+
       </Grid>
       </Grid>
+      <Box
+        as='form'
+        noValidate
+        onSubmit={(e)=>sendHandler(e)}>
+          <Box width={1/2} px={2}>
+            <Label htmlFor='address'>
+              address
+            </Label>
+            <Input
+            id='address'
+            name='address'
+            defaultValue='0x0'/>
+
+            <Label htmlFor='amount'>
+              amount to send
+            </Label>
+            <Input
+            id='amount'
+            name='amount'
+            defaultValue='420'/>
+
+          </Box>
+          <Box px={2} ml='auto'>
+            <Button
+            
+            type="submit"
+            >
+              Senddit
+            </Button>
+          </Box>
+
+ 
+
+
+      </Box>
+
+
+
+      <Heading>Welcome to the matrix, 
+        
+        <Text
+          fontStyle='italic'
+          color="white"
+        >
+            {address ? address : initialmessage}
+        </Text>
+
+            
+            </Heading>
+
+      </Card>
+
+
+
+      </Flex>
       </header>
     </div>
   );

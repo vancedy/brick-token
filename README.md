@@ -21,4 +21,10 @@ An example ERC20 token that can be sent, received, and bought using ETH.
 `cd frontend/brickToken`
 `npm start`
 
+**Congrats, you are now running brick token!**
+
+### RINKEBY DEPLOYMENT COMING SOON!!
+C
+C
+C
 **Congrats, you now are running Brick Token**
